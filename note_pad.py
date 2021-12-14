@@ -54,8 +54,10 @@ class Notepad:
         self.__thisTextArea.grid(sticky=N + E + S + W)
         # Open File
         self.__thisFileMenu.add_command(label='New', command=self.__newFile)
+        self.__thisFileMenu.add_separator()
         # Open existing file
         self.__thisFileMenu.add_command(label='Open', command=self.__openFile)
+        self.__thisFileMenu.add_separator()
         # Save File
         self.__thisFileMenu.add_command(label='Save', command=self.__saveFile)
         # Create a line in dialog
@@ -64,8 +66,10 @@ class Notepad:
         self.__thisMenuBar.add_cascade(label='File', menu=self.__thisFileMenu)
         # Add cut feature
         self.__thisEditMenu.add_command(label='Cut', command=self.__cut)
+        self.__thisEditMenu.add_separator()
         # Add copy feature
         self.__thisEditMenu.add_command(label='Copy', command=self.__copy)
+        self.__thisEditMenu.add_separator()
         # Add paste feature
         self.__thisEditMenu.add_command(label='Paste', command=self.__paste)
         # Add edit feature
@@ -85,7 +89,7 @@ class Notepad:
 
     # About Notepad info
     def __showAbout(self):
-        showinfo('Notepad Text Editor', 'Text editor for .txt files \n Author: Wade Chriestenson')
+        showinfo('Notepad Text Editor', 'Text editor \n Author: Wade Chriestenson')
 
     # Open File
     def __openFile(self):
@@ -141,6 +145,7 @@ class Notepad:
     def run(self):
         # Run main App
         self.__root.mainloop()
+
 
     # Creating a tuple containing
     # the specifications of the font.
