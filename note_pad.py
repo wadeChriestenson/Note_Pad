@@ -1,4 +1,4 @@
-# Packages need to execute script
+# Packages needed to execute script
 import tkinter
 import os
 from tkinter import *
