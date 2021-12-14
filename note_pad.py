@@ -58,7 +58,7 @@ class Notepad:
         self.__thisFileMenu.add_command(label='Save', command=self.__saveFile)
         # Create a lne in dialog
         self.__thisFileMenu.add_separator()
-        self.__thisFileMenu.add_command(label='Exit')
+        self.__thisFileMenu.add_command(label='Exit', command=self.__quitApplication)
         self.__thisMenuBar.add_cascade(label='File', menu=self.__thisFileMenu)
         # Add cut feature
         self.__thisEditMenu.add_command(label='Cut', command=self.__cut)
