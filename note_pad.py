@@ -2,12 +2,14 @@
 import tkinter
 import os
 from tkinter import *
+import tkinter.font
 from tkinter.messagebox import *
 from tkinter.filedialog import *
 
 
 class Notepad:
     __root = Tk()
+    __root.state('zoomed')
     __thisWidth = 600
     __thisHeight = 800
     __thisTextArea = Text(__root)
@@ -56,7 +58,7 @@ class Notepad:
         self.__thisFileMenu.add_command(label='Open', command=self.__openFile)
         # Save File
         self.__thisFileMenu.add_command(label='Save', command=self.__saveFile)
-        # Create a lne in dialog
+        # Create a line in dialog
         self.__thisFileMenu.add_separator()
         self.__thisFileMenu.add_command(label='Exit', command=self.__quitApplication)
         self.__thisMenuBar.add_cascade(label='File', menu=self.__thisFileMenu)
@@ -87,7 +89,7 @@ class Notepad:
 
     # Open File
     def __openFile(self):
-        self.__file = askopenfilename(defaulttextextension='.txt',
+        self.__file = askopenfilename(defaultextension='.txt',
                                       filetypes=[('All Files', '*.*'), ('Text Documents', '*.txt')])
         if self.__file == '':
             # No file to open
@@ -139,6 +141,17 @@ class Notepad:
     def run(self):
         # Run main App
         self.__root.mainloop()
+
+    # Creating a tuple containing
+    # the specifications of the font.
+    textFont = tkinter.font.Font(family='Roboto', size=12)
+    menuFont = tkinter.font.Font(family='Roboto', size=10)
+    # Parsed the specifications to the
+    # Text widget using .configure( ) method.
+    __thisTextArea.configure(font=textFont)
+    __thisFileMenu.config(font=menuFont)
+    __thisEditMenu.config(font=menuFont)
+    __thisHelpMenu.config(font=menuFont)
 
 
 # Run Notepad
